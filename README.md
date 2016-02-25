@@ -3,11 +3,9 @@
 To install:
 
 1. place `windlx.tmLanguage` file in: `C:\Users\[...]\AppData\Roaming\Sublime Text 3\Packages\User\` folder
-
-Then in Sublime Text 3:
-
-2. open file
-3. `ctrl` + `shift` + `p`
-4. type: `windlx`
-5. choose: `Set Syntax: WinDlx (by MaciejLisCK)`
-6. enjoy
+2. open Sublime Text 3
+3. open file
+4. `ctrl` + `shift` + `p`
+5. type: `windlx`
+6. choose: `Set Syntax: WinDlx (by MaciejLisCK)`
+7. enjoy
