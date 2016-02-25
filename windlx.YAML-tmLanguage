@@ -1,0 +1,76 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+name: WinDlx (by MaciejLisCK)
+scopeName: source.windlx
+fileTypes: [S]
+uuid: 812c3098-70a7-45ce-9a27-198918953507
+
+patterns:
+- comment: data section
+  name: meta.data
+  begin: ^\s*(\.data)\s*
+  beginCaptures:
+    '1': {name: keyword.other}
+  end: (?=\.text)
+  patterns:
+  - comment: Comment eg. ;some comment
+    name: comment.line.number-sign
+    match: ;.*
+  - name: meta.data.variable.name
+    match: ^\s*([A-Za-z_][A-Za-z0-9_]*)(\:)
+    captures:
+      '1': {name: variable.parameter}
+  - comment: data definition
+    name: storage.type
+    match: \.(byte|word|float|double|asciiz|space)
+  - comment: constant
+    name: constant.numeric
+    match: \d+.?\d*
+  - comment: text
+    name: string.quoted.double
+    match: \"[^\"]*\"
+
+- comment: text section
+  name: meta.text
+  begin: ^\s*(\.text)\s*
+  beginCaptures:
+    '1': {name: keyword.other}
+  end: (?=\.data)
+  patterns:
+  - comment: Comment eg. ;some comment
+    name: comment.line.number-sign
+    match: ;.*
+  - comment: label
+    name: entity.name.tag
+    match: ^\s*([A-Za-z_][A-Za-z0-9_]*\:)
+  - comment: instruction eg. sgei r30, r1,
+    name: entity.name.function
+    match: ^\s*(?i)(__d|__f|add|addd|addf|addi|addu|addui|and|andi|beqz|bfpf|bfpt|bnez|cvtd2f|cvtd2i|cvtf2d|cvtf2i|cvti2d|cvti2f|div|divd|divf|divu|eqd|eqf|fparith|ged|gef|gtd|gtf|j|jal|jalr|jr|la|lb|lbu|ld|led|lef|lf|lh|lhi|lhu|ltd|ltf|lw|movd|movf|movfp2i|movi2fp|movi2s|movs2i|mult|multd|multf|multu|ned|nef|nop|or|ori|rfe|s__|s__i|sb|sd|seq|seqi|sf|sge|sgei|sgeu|sgeui|sgt|sgti|sgtu|sgtui|sh|sle|slei|sleu|sleui|sll|slli|slt|slti|sltu|sltui|sne|snei|special|sra|srai|srl|srli|sub|subd|subf|subi|subu|subui|sw|trap|xor|xori)\s+
+  - comment: registers eg. f0
+    name: support.type
+    match: \b(?i)(pc|imar|ir|a|ahi|b|bhi|bta|alu|aluhi|fpsr|dmar|sdr|sdrhi|ldr|ldrhi|r0|r1|r2|r3|r4|r5|r6|r7|r8|r9|r10|r11|r12|r13|r14|r15|r16|r17|r18|r19|r20|r21|r22|r23|r24|r25|r26|r27|r28|r29|r30|r31|f0|f1|f2|f3|f4|f5|f6|f7|f8|f9|f10|f11|f12|f13|f14|f15|f16|f17|f18|f19|f20|f21|f22|f23|f24|f25|f26|f27|f28|f29|f30|f31|d0|d2|d4|d6|d8|d10|d12|d14|d16|d18|d20|d22|d24|d26|d28|d30)\b
+  - comment: operator
+    name: keyword.operator
+    match: (|\+|\-)
+  - comment: constant
+    name: constant.numeric
+    match: \#\d+\.?\d*
+  - comment: constant
+    name: constant.numeric
+    match: \b\d+\.?\d*\b
+  - comment: label
+    match: ^\s*(\.[A-Za-z_][A-Za-z0-9_]*)\s+([A-Za-z_][A-Za-z0-9_]+)
+    captures:
+      '1': {name: keyword.other}
+      '2': {name: keyword.other}
+  - comment: table
+    name: entity
+    begin: \b([A-Za-z_][A-Za-z0-9_]*\()\b
+    beginCaptures:
+      '1': {name: invalid}
+    end: (\))
+    endCaptures:
+      '1': {name: invalid}
+  - comment: variable names
+    name: variable.parameter
+    match: \b[A-Za-z_][A-Za-z_0-9]*\b
+
