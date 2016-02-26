@@ -5,6 +5,9 @@ fileTypes: [S]
 uuid: 812c3098-70a7-45ce-9a27-198918953507
 
 patterns:
+- comment: Comment eg. ;some comment
+  name: comment.line.number-sign
+  match: ;.*
 - comment: data section
   name: meta.data
   begin: ^\s*(\.data)\s*
