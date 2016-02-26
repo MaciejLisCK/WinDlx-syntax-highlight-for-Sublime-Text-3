@@ -11,6 +11,14 @@
 	<key>patterns</key>
 	<array>
 		<dict>
+			<key>comment</key>
+			<string>Comment eg. ;some comment</string>
+			<key>match</key>
+			<string>;.*</string>
+			<key>name</key>
+			<string>comment.line.number-sign</string>
+		</dict>
+		<dict>
 			<key>begin</key>
 			<string>^\s*(\.data)\s*</string>
 			<key>beginCaptures</key>
