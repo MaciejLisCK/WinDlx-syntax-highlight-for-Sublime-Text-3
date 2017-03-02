@@ -3,6 +3,7 @@
 **To install:**
 
 Place `windlx.tmLanguage` file in: `C:\Users\[...]\AppData\Roaming\Sublime Text 3\Packages\User\` folder. 
+
 Note: Folder may vary depend on Windows version.
 
 **To use:**
