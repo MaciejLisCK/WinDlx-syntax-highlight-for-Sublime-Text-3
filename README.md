@@ -2,11 +2,15 @@
 
 **To install:**
 
-Place `windlx.tmLanguage` file in: `C:\Users\[...]\AppData\Roaming\Sublime Text 3\Packages\User\` folder. 
+1. Place `windlx.tmLanguage` file in: `C:\Users\[...]\AppData\Roaming\Sublime Text 3\Packages\User\` folder. (*Note: Folder may vary depend on Windows version.*)
+2. open Sublime Text 3
+3. open any file with `*.s` extension
+4. View -> Syntax -> Open all with current extension as... -> WinDLX (by MaciejLisCK)
 
-> Note: Folder may vary depend on Windows version.
+From now any `*.s` file you open will have syntax support.
 
-**To use:**
+
+**To use with other extension:**
 
 1. open Sublime Text 3
 2. open file
